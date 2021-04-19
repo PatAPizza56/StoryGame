@@ -8,4 +8,4 @@ This project was created to gain experience in using JSON with c#. I am using Ne
 
 Created on: `4/18/21`  
 Skills learned: Advanced knowledge in JSON parsing with Newtonsoft
-Project difficulty: 2/10
+Project difficulty: 3
