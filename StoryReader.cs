@@ -16,31 +16,55 @@ namespace StoryGame
             {
                 if (r == story.Decisions[i].Route)
                 {
-                    Prompt(story.Decisions[i]);
+                    Handle(story.Decisions[i]);
                 }
             }
         }
 
-        void Prompt(Decision d)
+        void Handle(Decision d)
         {
-            if (d.IsEnding)
+            switch (d.Type)
             {
-                Console.WriteLine(d.Ending);
-                Console.ReadLine();
+                case (int)Decision.DecisionType.Decision:
+                    HandleDecision(d);
+                    break;
+                //case (int)Decision.DecisionType.Redirect:
+                //    for (int i = 0; i < story.Decisions.Length; i++)
+                //    {
+                //        if (d.ToID == story.Decisions[i].ID)
+                //        {
+                //            HandleDecision(story.Decisions[i]);
+                //        }
+                //    }
+                //    break;
+                case (int)Decision.DecisionType.Ending:
+                    HandleEnding(d);
+                    break;
             }
-            else
-            {
-                Console.WriteLine(d.Prompt);
-                string r = Console.ReadLine();
+        }
 
-                for (int i = 0; i < d.Decisions.Length; i++)
+        void HandleDecision(Decision d)
+        {
+            Console.WriteLine(d.Prompt);
+            string r = Console.ReadLine();
+            for (int i = 0; i < d.Decisions.Length; i++)
+            {
+                if (r == d.Decisions[i].Route)
                 {
-                    if (r == d.Decisions[i].Route)
-                    {
-                        Prompt(d.Decisions[i]);
-                    }
+                    Handle(d.Decisions[i]);
                 }
             }
+        }
+
+        void HandleRedirect()
+        {
+
+        }
+
+        void HandleEnding(Decision d)
+        {
+            Console.WriteLine(d.Ending);
+            Console.ReadLine();
         }
     }
 }

@@ -2,37 +2,56 @@
   "Prompt": "You wake up in a forest. You see a 2015 Nissan ALTIMA. You can either 'take' or 'die'.",
   "Decisions": [
     {
+      "ID": 0,
+      "Type": 1,
       "Route": "take",
-      "IsEnding": false,
+
       "Prompt": "You choose to take the 2015 Nissan ALTIMA. After getting in, you can either 'leave' or 'practice parallel parking'.",
       "Decisions": [
         {
+          "ID": 1,
+          "Type": 3,
           "Route": "leave",
-          "IsEnding": true,
+
           "Ending": "You left The Forest, Congratulations!"
         },
         {
+          "ID": 2,
+          "Type": 1,
           "Route": "practice parallel parking",
-          "IsEnding": false,
-          "Prompt": "You succesfully parallel park the 2015 Nissan ALTIMA. A monster appears to applaud your magnificant job. You can either 'run' or 'offer a ride'",
+
+          "Prompt": "You succesfully parallel park the 2015 Nissan ALTIMA. A monster appears to applaud your magnificant job. You can either 'run', 'offer a ride', or change your mind and 'leave'",
           "Decisions": [
             {
+              "ID": 3,
+              "Type": 3,
               "Route": "run",
-              "IsEnding": true,
+
               "Ending": "You died. The monster was faster than you, so you failed to outrun it."
             },
             {
+              "ID": 4,
+              "Type": 3,
               "Route": "offer a ride",
-              "IsEnding": true,
+
               "Ending": "You died. You tried to offer the monster a ride, however it ate you."
+            },
+            {
+              "ID": 5,
+              "Type": 2,
+              "Route": "leave",
+
+              "ToID": 1
             }
           ]
         }
       ]
     },
     {
+      "ID": 6,
+      "Type": 3,
       "Route": "die",
-      "IsEnding": true,
+
       "Ending": "You died. You should've taken the 2015 Nissan ALTIMA.'"
     }
   ]
